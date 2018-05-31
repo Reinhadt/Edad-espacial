@@ -1,26 +1,24 @@
 import React from 'react';
 
-const Form = (props) => {
+const info = (props) => {
 
-    const planetas = props.planetas.map((planeta, i) => {
-        
-        let id = planeta.url.charAt(planeta.url.length-2);
-        
+    const meses = ((props.datos.edad % 1)*12).toFixed(0);
+
+    if(props.datos.length !== 0){
         return(
-            <option key={planeta.name} value={id}>{planeta.name}</option>
+            <div>
+                <h1>Tu edad en {props.datos.planeta}: {props.datos.edad.toFixed(0)}</h1>
+                <p>Meses: {props.datos.edad?meses:''}</p>
+                <p>Horas de un día en {props.datos.planeta}: {props.datos.dia}</p>
+                <p>Días de un año en {props.datos.planeta}: {props.datos.año}</p>
+            </div>
         )
-    })
-
-    return(
-        <div>
-            <input onChange={props.handleChange} className="input" value={props.valor} required />
-            <select onChange={props.handleSelectChange} name="planetas" id="planetas">
-                {planetas}
-            </select>
-            <button onClick={props.handleClick} >Enviar</button>
-        </div>
-    )
-
+    }
+    else{
+        return(
+            <h1>Acá va tu edad</h1>
+        )
+    }
 }
 
-export default Form;
+export default info;
