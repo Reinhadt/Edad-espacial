@@ -48,7 +48,7 @@ class Main extends Component {
 
            this.setState({
                planetas: result.data.results,
-               select: 1
+               select: 2
            })
         }).catch((err) => {
            console.log(err)
