@@ -3,8 +3,11 @@ import React from 'react';
 const Form = (props) => {
 
     const planetas = props.planetas.map((planeta, i) => {
+        
+        let id = planeta.url.charAt(planeta.url.length-2);
+        
         return(
-            <option key={planeta.name} value={i+1}>{planeta.name}</option>
+            <option key={planeta.name} value={id}>{planeta.name}</option>
         )
     })
 
